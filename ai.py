@@ -46,6 +46,11 @@ SQL Query:"""
             result = response.json()
             sql_query = result["response"].strip()
             
+            # CRITICAL: Query Safety - Only allow SELECT queries
+            if not sql_query.lower().startswith("select"):
+                print(f"[SECURITY] Blocked non-SELECT query: {sql_query[:50]}...")
+                return "Only SELECT queries are allowed for security reasons."
+            
             # Cache the result
             _query_cache[question] = (sql_query, time.time())
             
