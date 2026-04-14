@@ -1,1 +1,1 @@
-# sql-ai-assistant
+🚀 AI-powered SQL Assistant using Ollama (Mistral) — converts natural language into SQL and executes queries.
